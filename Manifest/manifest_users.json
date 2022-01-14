@@ -5,10 +5,10 @@
   "id": "148a66bb-e83d-425a-927d-09f4299a9274",
   "packageName": "com.microsoft.teams.companycommunicator",
   "developer": {
-    "name": "<<companyName>>",
-    "websiteUrl": "<<websiteUrl>>",
-    "privacyUrl": "<<privacyUrl>>",
-    "termsOfUseUrl": "<<termsOfUseUrl>>"
+    "name": "Microsoft Internal",
+    "websiteUrl": "https://example.com",
+    "privacyUrl": "https://example.com",
+    "termsOfUseUrl": "https://example.com"
   },
   "icons": {
     "color": "color.png",
@@ -24,7 +24,7 @@
   },
   "accentColor": "#64A2CC",
   "bots": [{
-    "botId": "<<botId>>",
+    "botId": "9d4a5dfc-bc44-4e66-8740-cc5d98ad1c79",
     "scopes": [
       "personal",
       "team"
@@ -37,6 +37,6 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "<<appDomain>>"
+    "kaotacc.azurefd.net"
   ]
 }

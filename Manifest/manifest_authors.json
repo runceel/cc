@@ -5,10 +5,10 @@
   "id": "1c07cd26-a088-4db8-8928-ace382fa219f",
   "packageName": "com.microsoft.teams.companycommunicator.authors",
   "developer": {
-    "name": "<<companyName>>",
-    "websiteUrl": "<<websiteUrl>>",
-    "privacyUrl": "<<privacyUrl>>",
-    "termsOfUseUrl": "<<termsOfUseUrl>>"
+    "name": "Microsoft Internal",
+    "websiteUrl": "https://example.com",
+    "privacyUrl": "https://example.com",
+    "termsOfUseUrl": "https://example.com"
   },
   "icons": {
     "color": "color.png",
@@ -24,14 +24,14 @@
   },
   "accentColor": "#64A2CC",
   "configurableTabs": [{
-    "configurationUrl": "https://<<appDomain>>/configtab",
+    "configurationUrl": "https://kaotacc.azurefd.net/configtab",
     "canUpdateConfiguration": true,
     "scopes": [
       "team"
     ]
   }],
   "bots": [{
-    "botId": "<<botId>>",
+    "botId": "ccc2a44d-37c1-4d27-bc6f-e110def7f05e",
     "scopes": [
       "team"
     ],
@@ -43,10 +43,10 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "<<appDomain>>"
+    "kaotacc.azurefd.net"
   ],
   "webApplicationInfo": {
-    "id": "<<botId>>",
-    "resource": "api://<<appDomain>>"
+    "id": "ccc2a44d-37c1-4d27-bc6f-e110def7f05e",
+    "resource": "api://kaotacc.azurefd.net"
   }
 }

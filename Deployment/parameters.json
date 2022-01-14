@@ -1,34 +1,34 @@
 {
   "subscriptionId": {
-    "Value": "<<value>>",
+    "Value": "c6465cdc-a5c7-4491-b60d-a7d57ff990ab",
     "Description": "Azure Subscription ID. All resources in an Azure subscription are billed together."
   },
   "subscriptionTenantId": {
-    "Value": "<<value>>",
+    "Value": "a6b061e8-6a7b-4da6-835e-afe838d0c2de",
     "Description": "Id of the tenant to deploy to (If you are not sure how to get Tenant ID, please check Azure Active Directory in Azure Portal. Under Manage, click Properties. The tenant ID is shown in the Directory ID box). e.g 98f3ece2-3a5a-428b-aa4f-4c41b3f6eef0. Tenant ID is also in the \"Overview\" section\""
   },
   "UserObjectId": {
-    "Value": "<<value>>",
+    "Value": "2e21d899-cd82-4315-a80c-ea6bbcab3f86",
     "Description": "User Object Id."
   },
   "resourceGroupName": {
-    "Value": "<<value>>",
+    "Value": "rg-cclab3",
     "Description": "Resource Group"
   },
   "region": {
-    "Value": "<<value>>",
+    "Value": "Japan East",
     "Description": "The Azure region that's right for you and your customers. Not every resource is available in every region."
   },
   "baseResourceName": {
-    "Value": "<<value>>",
+    "Value": "kaotacc4",
     "Description": "The base name to use for the resources that will be provisioned."
   },
   "tenantId": {
-    "Value": "<<value>>",
+    "Value": "2c2a656f-2522-4617-ab7f-336c9f6786d9",
     "Description": "Tenant Id where the teams application will be installed. If the Azure subscription is in the same tenant, update with \"subscriptionTenantId\" parameter value."
   },
   "senderUPNList": {
-    "Value": "<<value>>",
+    "Value": "AdeleV@M365x386251.OnMicrosoft.com;LynneR@M365x386251.OnMicrosoft.com",
     "Description": "Semicolon-delimited list of the user principal names (UPNs) allowed to send messages."
   },
   "useCertificate": {
@@ -36,15 +36,15 @@
     "Description": "If certificate authentication is being used, then value should be true. Otherwise, false is default (Client-secret will be used)."
   },
   "authorAppCertName": {
-    "Value": "<<value>>",
+    "Value": "",
     "Description": "The X.509 certificate name of the author bot Azure AD app."
   },
   "graphAppCertName": {
-    "Value": "<<value>>",
+    "Value": "",
     "Description": "The X.509 certificate name of the Microsoft Azure AD app."
   },
   "userAppCertName": {
-    "Value": "<<value>>",
+    "Value": "",
     "Description": "The X.509 certificate name of the user bot Azure AD app."
   },
   "isUpgrade": {
@@ -60,7 +60,7 @@
     "Description": "If proactive app installation should be enabled. Default is true. If enabled, the application will proactively install the User bot for recipients."
   },
   "userAppExternalId": {
-    "Value": "148a66bb-e83d-425a-927d-09f4299a9274",
+    "Value": "158bf90e-3625-4323-9ace-9071d9d3aeab",
     "Description": "User app external ID."
   },
   "serviceBusWebAppRoleNameGuid": {
@@ -92,7 +92,7 @@
     "Description": "A GUID used to identify the role assignment. This is Default value."
   },
   "defaultCulture": {
-    "Value": "en-US",
+    "Value": "ja-JP",
     "Description": "Default culture."
   },
   "supportedCultures": {
@@ -116,7 +116,7 @@
     "Description": "The branch of the GitHub repository to deploy."
   },
   "appDisplayName": {
-    "Value": "Company Communicator",
+    "Value": "社内コミュニケーター",
     "Description": "The app (and bot) display name."
   },
   "appDescription": {
@@ -128,19 +128,19 @@
     "Description": "The link to the icon for the app. It must resolve to a PNG file."
   },
   "companyName": {
-    "Value": "<<value>>",
+    "Value": "Contoso Inc.",
     "Description": "The display name for the company."
   },
   "websiteUrl": {
-    "Value": "<<value>>",
+    "Value": "https://example.com",
     "Description": "The https:// URL to the company's website. This link should take users to your company or product-specific landing page."
   },
   "privacyUrl": {
-    "Value": "<<value>>",
+    "Value": "https://example.com",
     "Description": "The https:// URL to the company's privacy policy."
   },
   "termsOfUseUrl": {
-    "Value": "<<value>>",
+    "Value": "https://example.com",
     "Description": "The https:// URL to the company's terms of use."
   }
 }
