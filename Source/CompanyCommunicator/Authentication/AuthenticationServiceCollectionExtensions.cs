@@ -124,15 +124,15 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Authentication
                 throw new ApplicationException("AzureAd TenantId is missing in the configuration file.");
             }
 
-            if (string.IsNullOrWhiteSpace(authenticationOptions?.AzureAdApplicationIdUri))
-            {
-                throw new ApplicationException("AzureAd ApplicationIdUri is missing in the configuration file.");
-            }
+            //if (string.IsNullOrWhiteSpace(authenticationOptions?.AzureAdApplicationIdUri))
+            //{
+            //    throw new ApplicationException("AzureAd ApplicationIdUri is missing in the configuration file.");
+            //}
 
-            if (string.IsNullOrWhiteSpace(authenticationOptions?.AzureAdValidIssuers))
-            {
-                throw new ApplicationException("AzureAd ValidIssuers is missing in the configuration file.");
-            }
+            //if (string.IsNullOrWhiteSpace(authenticationOptions?.AzureAdValidIssuers))
+            //{
+            //    throw new ApplicationException("AzureAd ValidIssuers is missing in the configuration file.");
+            //}
         }
 
         private static IEnumerable<string> SplitAuthenticationOptionsList(string stringInAuthenticationOptions)
