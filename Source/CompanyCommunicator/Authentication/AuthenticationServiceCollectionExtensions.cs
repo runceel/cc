@@ -52,7 +52,10 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Authentication
                     var defaultBackChannel = new HttpClient();
                     defaultBackChannel.DefaultRequestHeaders.Add("Origin", "thisismyapp");
                     o.Backchannel = defaultBackChannel;
-                });
+                })
+                .EnableTokenAcquisitionToCallDownstreamApi()
+                .AddInMemoryTokenCaches();
+            ;
 
             //AuthenticationServiceCollectionExtensions.ValidateAuthenticationOptions(authenticationOptions);
             //var azureADOptions = new AzureADOptions
