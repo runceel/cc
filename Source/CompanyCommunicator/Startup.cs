@@ -135,14 +135,14 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
             AuthenticationOptions authenticationOptionsParameter = new AuthenticationOptions();
             Startup.FillAuthenticationOptionsProperties(authenticationOptionsParameter, this.Configuration);
             services.AddAuthentication(this.Configuration, authenticationOptionsParameter);
-            services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApp(o =>
-                {
-                    this.Configuration.GetSection("AzureAd").Bind(o);
-                    var defaultBackChannel = new HttpClient();
-                    defaultBackChannel.DefaultRequestHeaders.Add("Origin", "thisismyapp");
-                    o.Backchannel = defaultBackChannel;
-                });
+            //services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+            //    .AddMicrosoftIdentityWebApp(o =>
+            //    {
+            //        this.Configuration.GetSection("AzureAd").Bind(o);
+            //        var defaultBackChannel = new HttpClient();
+            //        defaultBackChannel.DefaultRequestHeaders.Add("Origin", "thisismyapp");
+            //        o.Backchannel = defaultBackChannel;
+            //    });
             services.AddControllersWithViews();
 
             // Setup SPA static files.
