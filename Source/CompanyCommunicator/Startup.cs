@@ -52,6 +52,8 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
     /// </summary>
     public class Startup
     {
+        private const string AllowOriginsForMicrosoftSigninServices = nameof(AllowOriginsForMicrosoftSigninServices);
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Startup"/> class.
         /// </summary>
@@ -72,6 +74,17 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
         /// <param name="services">IServiceCollection instance.</param>
         public void ConfigureServices(IServiceCollection services)
         {
+            // add cors for pkce
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    AllowOriginsForMicrosoftSigninServices,
+                    builder =>
+                    {
+                        builder.WithOrigins("https://login.microsoftonline.com");
+                    });
+            });
+
             // Add all options set from configuration values.
             services.AddOptions<AuthenticationOptions>()
                 .Configure<IConfiguration>((authenticationOptions, configuration) =>
@@ -214,6 +227,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+            app.UseCors(AllowOriginsForMicrosoftSigninServices);
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseRequestLocalization();
