@@ -8,8 +8,10 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Authentication
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net.Http;
     using Microsoft.AspNetCore.Authentication.AzureAD.UI;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -43,22 +45,31 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Authentication
             IConfiguration configuration,
             AuthenticationOptions authenticationOptions)
         {
-            AuthenticationServiceCollectionExtensions.ValidateAuthenticationOptions(authenticationOptions);
-            var azureADOptions = new AzureADOptions
-            {
-                Instance = authenticationOptions.AzureAdInstance,
-                TenantId = authenticationOptions.AzureAdTenantId,
-                ClientId = authenticationOptions.AzureAdClientId,
-            };
-            var useCertificate = configuration.GetValue<bool>("UseCertificate");
-            if (useCertificate)
-            {
-                RegisterAuthenticationServicesWithCertificate(services, configuration, authenticationOptions, azureADOptions);
-            }
-            else
-            {
-                RegisterAuthenticationServicesWithSecret(services, configuration, authenticationOptions, azureADOptions);
-            }
+            services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApp(o =>
+                {
+                    configuration.GetSection("AzureAd").Bind(o);
+                    var defaultBackChannel = new HttpClient();
+                    defaultBackChannel.DefaultRequestHeaders.Add("Origin", "thisismyapp");
+                    o.Backchannel = defaultBackChannel;
+                });
+
+            //AuthenticationServiceCollectionExtensions.ValidateAuthenticationOptions(authenticationOptions);
+            //var azureADOptions = new AzureADOptions
+            //{
+            //    Instance = authenticationOptions.AzureAdInstance,
+            //    TenantId = authenticationOptions.AzureAdTenantId,
+            //    ClientId = authenticationOptions.AzureAdClientId,
+            //};
+            //var useCertificate = configuration.GetValue<bool>("UseCertificate");
+            //if (useCertificate)
+            //{
+            //    RegisterAuthenticationServicesWithCertificate(services, configuration, authenticationOptions, azureADOptions);
+            //}
+            //else
+            //{
+            //    RegisterAuthenticationServicesWithSecret(services, configuration, authenticationOptions, azureADOptions);
+            //}
         }
 
         private static void RegisterAuthenticationServicesWithCertificate(

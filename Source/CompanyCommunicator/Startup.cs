@@ -132,17 +132,10 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
             services.AddLocalizationSettings(this.Configuration);
 
             // Add authentication services.
-            // AuthenticationOptions authenticationOptionsParameter = new AuthenticationOptions();
-            // Startup.FillAuthenticationOptionsProperties(authenticationOptionsParameter, this.Configuration);
-            // services.AddAuthentication(this.Configuration, authenticationOptionsParameter);
-            services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApp(o =>
-                {
-                    this.Configuration.GetSection("AzureAd").Bind(o);
-                    var defaultBackChannel = new HttpClient();
-                    defaultBackChannel.DefaultRequestHeaders.Add("Origin", "thisismyapp");
-                    o.Backchannel = defaultBackChannel;
-                });
+            AuthenticationOptions authenticationOptionsParameter = new AuthenticationOptions();
+            Startup.FillAuthenticationOptionsProperties(authenticationOptionsParameter, this.Configuration);
+            services.AddAuthentication(this.Configuration, authenticationOptionsParameter);
+
             services.AddControllersWithViews();
 
             // Setup SPA static files.
