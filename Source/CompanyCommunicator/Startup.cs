@@ -77,8 +77,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
             // add cors for pkce
             services.AddCors(options =>
             {
-                options.AddPolicy(
-                    AllowOriginsForMicrosoftSigninServices,
+                options.AddDefaultPolicy(
                     builder =>
                     {
                         builder.WithOrigins("https://login.microsoftonline.com");
@@ -227,7 +226,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
             app.UseSpaStaticFiles();
 
             app.UseRouting();
-            app.UseCors(AllowOriginsForMicrosoftSigninServices);
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseRequestLocalization();
