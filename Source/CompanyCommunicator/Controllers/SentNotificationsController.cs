@@ -11,6 +11,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Controllers
     using System.Security.Claims;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Cors;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
@@ -32,6 +33,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Controllers
     /// Controller for the sent notification data.
     /// </summary>
     [Authorize(PolicyNames.MustBeValidUpnPolicy)]
+    [EnableCors(Startup.AllowOriginsForMicrosoftSigninServices)]
     [Route("api/sentNotifications")]
     public class SentNotificationsController : ControllerBase
     {

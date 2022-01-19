@@ -13,6 +13,8 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
     using Microsoft.AspNetCore.Diagnostics;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Cors;
     using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
     using Microsoft.Bot.Connector.Authentication;
@@ -52,7 +54,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
     /// </summary>
     public class Startup
     {
-        private const string AllowOriginsForMicrosoftSigninServices = nameof(AllowOriginsForMicrosoftSigninServices);
+        public const string AllowOriginsForMicrosoftSigninServices = nameof(AllowOriginsForMicrosoftSigninServices);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Startup"/> class.
@@ -77,7 +79,8 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
             // add cors for pkce
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(
+                options.AddPolicy(
+                    AllowOriginsForMicrosoftSigninServices,
                     builder =>
                     {
                         // free pass
@@ -229,7 +232,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
             app.UseSpaStaticFiles();
 
             app.UseRouting();
-            app.UseCors();
+            app.UseCors(AllowOriginsForMicrosoftSigninServices);
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseRequestLocalization();
