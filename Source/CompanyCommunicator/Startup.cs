@@ -80,7 +80,10 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("https://login.microsoftonline.com");
+                        // free pass
+                        builder.AllowAnyOrigin() //.WithOrigins("https://*.microsoftonline.com")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
                     });
             });
 
