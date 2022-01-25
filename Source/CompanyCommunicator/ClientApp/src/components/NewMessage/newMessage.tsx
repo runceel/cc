@@ -883,7 +883,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
     }
 
     private onBtnLinkChanged = (event: any) => {
-        if (!(event.target.value === "" || event.target.value.toLowerCase().startsWith("https://"))) {
+        if (!(event.target.value === "" || event.target.value.toLowerCase().startsWith("https://") || event.target.value.toLowerCase().startsWith("http://"))) {
             this.setState({
                 errorButtonUrlMessage: this.localize("ErrorURLMessage")
             });
